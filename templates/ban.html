@@ -1,0 +1,48 @@
+{% extends "dashboard_base.html" %}
+{% block body %}
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-md-offset-3">
+                <ul>
+
+                    <form action="{{ url_for('cp.ban_user') }}" method="POST">
+                    <div class="well">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Character Name" name="banUser">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Ban!</button>
+                            </span>
+                        </div>
+                    </div>
+                    </form>
+
+                    <form action="{{ url_for('cp.unban_user') }}" method="POST">
+                    <div class="well">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Character Name" name="unbanUser">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">UnBan!</button>
+                            </span>
+                        </div>
+                    </div>
+                    </form>
+
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Banned Users</div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                {% for user in data %}
+                                <a href="#" class="list-group-item" name="{{ user }}">{{ user }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

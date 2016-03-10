@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form action="/login" class="form-signin" method="POST" style="max-width: 330px; margin: 0 auto;">
+                {% with errors = get_flashed_messages(category_filter=["error"]) %}
+                {% if errors %}
+                <div class="alert alert-dismissible alert-info">
+                    {%- for msg in errors %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+
+                {% with errors = get_flashed_messages(category_filter=["success"]) %}
+                {% if errors %}
+                <div class="alert alert-dismissible alert-success">
+                    {%- for msg in errors %}
+                        {{ msg }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+
+                <h2 class="form-signin-heading">Please sign in</h2>
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="" name="username">
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name="password">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember_me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          </form>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+</body>
+{% endblock %}
