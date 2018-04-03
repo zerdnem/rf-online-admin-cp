@@ -5,7 +5,7 @@ Works with server 2232 database.
 - ~~GM registration~~
 - ~~Normal user account registration~~
 - ~~Ban users~~
-- ~~List ban users~~
+- ~~List banned users~~
 - ~~Login/logout to dashboard~~
 - Server status
 - List online users
